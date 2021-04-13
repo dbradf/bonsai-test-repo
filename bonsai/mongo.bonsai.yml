@@ -7,7 +7,7 @@ functions:
         params:
           script: |
             set -o errexit
-            ./bonsai_files/bonsai/get_mongo_server
+            ./src/bonsai_files/bonsai/get_mongo_server
 
   start:
     description: Start a mongodb instance.
@@ -16,7 +16,7 @@ functions:
         params:
           script: |
             set -o errexit
-            ./bonsai_files/bonsai/start_mongo_server
+            ./src/bonsai_files/bonsai/start_mongo_server
   stop:
     description: Stop running mongodb instance.
     actions:
@@ -24,4 +24,4 @@ functions:
         params:
           script: |
             set -o errexit
-            ./bonsai_files/bonsai/stop_mongo_server
+            ./src/bonsai_files/bonsai/stop_mongo_server
