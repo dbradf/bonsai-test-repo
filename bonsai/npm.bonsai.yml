@@ -1,3 +1,4 @@
+name: npm
 functions:
   run:
     description: Execute the specified npm action.
