@@ -1,0 +1,4 @@
+bonsai_pots:
+  npm:
+    path: bonsai/npm.bonsai.yml
+    description: Work with node.js npm commands.
