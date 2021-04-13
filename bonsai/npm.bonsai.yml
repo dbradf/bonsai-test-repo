@@ -1,39 +1,47 @@
 functions:
   run:
-    - command: shell.exec
-      params:
-        working_dir: bonsai/npm
-        script: |
-          set -o errexit
-          set -o verbose
+    description: Execute the specified npm action.
+    params:
+      - name: target_dir
+        description: Directory containing npm configuration.
+      - name: npm_command
+        description: npm command to execute.
+    actions:
+      - command: shell.exec
+        params:
+          working_dir: bonsai/npm
+          script: |
+            set -o errexit
 
-          export NVM_DIR=$(pwd)/nvm
-          . "$NVM_DIR/nvm.sh"
+            export NVM_DIR=$(pwd)/nvm
+            . "$NVM_DIR/nvm.sh"
 
-          cd ../../${target_dir}
-          npm install
-          CI=true npm run ${npm_command}
+            cd ../../${target_dir}
+            npm install
+            CI=true npm run ${npm_command}
 
 
   install node:
-  - command: shell.exec
-    params:
-      script: |
-        set -o errexit
-        mkdir -p bonsai/npm
+    description: Configure and install node and npm.
+    actions:
+      - command: shell.exec
+        params:
+          script: |
+            set -o errexit
+            mkdir -p bonsai/npm
 
-  - command: shell.exec
-    params:
-      working_dir: bonsai/npm
-      script: |
-        set -o errexit
+      - command: shell.exec
+        params:
+          working_dir: bonsai/npm
+          script: |
+            set -o errexit
 
-        mkdir nvm
-        export NVM_DIR=$(pwd)/nvm
-        export PROFILE=/dev/null
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+            mkdir nvm
+            export NVM_DIR=$(pwd)/nvm
+            export PROFILE=/dev/null
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-        echo "Hello World"
+            echo "Hello World"
 
-        . "$NVM_DIR/nvm.sh"
-        nvm install --lts
+            . "$NVM_DIR/nvm.sh"
+            nvm install --lts
