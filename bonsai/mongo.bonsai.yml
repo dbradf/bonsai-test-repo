@@ -1,0 +1,27 @@
+name: mongo
+functions:
+  get:
+    description: Download a mongodb server to run.
+    actions:
+      - command: shell.exec
+        params:
+          script: |
+            set -o errexit
+            ./bonsai/bonsai/get_mongo_server
+
+  start:
+    description: Start a mongodb instance.
+    actions:
+      - command: shell.exec
+        params:
+          script: |
+            set -o errexit
+            ./bonsai/bonsai/start_mongo_server
+  stop:
+    description: Stop running mongodb instance.
+    actions:
+      - command: shell.exec
+        params:
+          script: |
+            set -o errexit
+            ./bonsai/bonsai/stop_mongo_server
