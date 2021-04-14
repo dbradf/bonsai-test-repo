@@ -1,2 +1,4 @@
+pwd
 wget -q https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.2.11.tgz
 tar -zxf mongodb-linux-x86_64-ubuntu1604-4.2.11.tgz --strip-components=1
+ls
