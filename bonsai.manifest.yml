@@ -1,13 +1,16 @@
 bonsai_pots:
-  - path: bonsai/npm.pot.yml
+  - name: npm
+    path: bonsai/npm.pot.yml
     description: Work with node.js npm commands.
 
-  - path: bonsai/mongo.pot.yml
+  - name: mongo
+    path: bonsai/mongo.pot.yml
     description: Start a mongodb instance to run against.
     include_files:
       - bonsai/get_mongo_server
       - bonsai/start_mongo_server
       - bonsai/stop_mongo_server
 
-  - path: bonsai/poetry.pot.yml
+  - name: poetry
+    path: bonsai/poetry.pot.yml
     description: Work with python poetry commands.
